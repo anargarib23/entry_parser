@@ -3,7 +3,6 @@ import requests
 from selenium import webdriver
 
 class ParsingRule:
-
 	def execute(self, html_soup):
 		pass
 
@@ -43,10 +42,3 @@ class ParseContent(ParsingRule):
 	def execute(self, html_soup):
 		return html_soup.find('article', class_='entry').findChildren()[0]
 
-url = 'https://soz6.com/entry/139756'
-
-source = requests.get(url).text
-soup = bs.BeautifulSoup(source, 'html.parser')
-
-rule = ParseEntryNumber()
-print(rule.execute(soup));
