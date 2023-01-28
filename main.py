@@ -1,9 +1,11 @@
 from parsing_rules import *
+from util import log_info
 import json
 import sys
 
+
 entry_id = sys.argv[1]
-print(entry_id)
+log_info(entry_id)
 
 rule_label_pairs = [
 (ParseEntryId(), 'entry_id'),
@@ -12,8 +14,9 @@ rule_label_pairs = [
 (ParseAuthor(), 'author'),
 (ParseLikeCount(), 'like_count'),
 (ParseReadCount(), 'read_count'),
-(ParseWiki(), 'wiki'),
-(ParseDatetime(), 'datetime')
+(ParseIsWiki(), 'wiki'),
+(ParseDatetime(), 'datetime'),
+(ParseContent(), 'content')
 ]
 
 url = 'https://soz6.com/entry/%s' % entry_id
@@ -23,6 +26,10 @@ soup = bs.BeautifulSoup(source, 'html.parser')
 
 entry = {}
 
+if ParseIsDeleted().execute(soup):
+	log_info('Entry Deleted')
+	quit()
+
 for pair in rule_label_pairs:
 	rule = pair[0];
 	label = pair[1];
@@ -30,4 +37,4 @@ for pair in rule_label_pairs:
 	entry[label] = rule.execute(soup);
 
 
-print(json.dumps(entry, indent=4, ensure_ascii=False));
+log_info(json.dumps(entry, indent=4, ensure_ascii=False));
