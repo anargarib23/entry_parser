@@ -1,0 +1,1 @@
+mongoexport --forceTableScan --uri "mongodb+srv://dasein:sextinaaquafina@c0.y3uyqtn.mongodb.net/soz6" --collection non_wiki_entries --out nwe.json

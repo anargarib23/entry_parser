@@ -1,0 +1,27 @@
+wiki-data-size: 602
+nonwiki-data-size: 600
+nonwiki-extra-percent: .04
+
+nonwiki-random-seed: 666
+entry-start-id: 162
+entry-end-id: 365647
+
+wiki-source: https://www.soz6.com/wiki.php?sayfa
+entry-source: https://www.soz6.com/entry/
+
+wiki-page-start: 1
+wiki-page-end: 31
+
+wiki-ids-path: ./ids/wiki_entry_ids.txt
+nonwiki-ids-path: ./ids/nonwiki_entry_ids.txt
+
+database-source: mongodb+srv://dasein:sextinaaquafina@c0.y3uyqtn.mongodb.net/?retryWrites=true&w=majority
+database-name: soz6
+wiki-entry-collection: wiki_entries
+nonwiki-entry-collection: non_wiki_entries
+
+dataset-path: ./dataset/dataset.csv
+wiki-dataset-path: ./dataset/wiki_entries.csv
+nonwiki-dataset-path: ./dataset/nonwiki_entries.csv
+
+model-path: ./models
